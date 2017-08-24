@@ -12,6 +12,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { LoginComponent } from './component/login/login.component';
 import {HttpModule} from '@angular/http';
+import { ItemService} from './service/item.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import {HttpModule} from '@angular/http';
     BrowserModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

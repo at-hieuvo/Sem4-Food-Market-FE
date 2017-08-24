@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../../../service/item.service';
 
 @Component({
   selector: 'app-home-material',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeMaterialComponent implements OnInit {
 
-  constructor() { }
+  private itemsMaterial: any;
+  constructor(private itemService:ItemService) { }
 
   ngOnInit() {
+    this.itemService.getAll().subscribe((data: any) => {
+      this.itemsMaterial = data;
+    })
   }
 
 }
