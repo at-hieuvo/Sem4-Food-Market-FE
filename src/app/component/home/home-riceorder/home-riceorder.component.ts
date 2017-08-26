@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemService } from '../../../service/item.service';
 
 @Component({
   selector: 'app-home-riceorder',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeRiceorderComponent implements OnInit {
 
-  constructor() { }
+  itemsNew: any;
+  constructor(private itemService:ItemService) { }
 
   ngOnInit() {
+    this.itemService.getItemNew().subscribe((data: any) => {
+      this.itemsNew = data;
+    })
   }
 
 }
