@@ -12,6 +12,13 @@ import { RegisterComponent } from './component/register/register.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { LoginComponent } from './component/login/login.component';
 import {HttpModule} from '@angular/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AccountComponent} from './component/account/account.component';
+import ActivateGuard from './security/activate-guard';
+import {TokenService} from './service/token.service';
+import {ShareService} from './service/share.service';
+import SupplierGuard from './security/supplier-guard';
+import NoLoggedGuard from './security/no-logged-guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,14 +31,23 @@ import {HttpModule} from '@angular/http';
     // ProductListComponent
     LoginComponent,
      RegisterComponent,
-    PaymentComponent
+    PaymentComponent,
+      AccountComponent
   ],
   imports: [
    routing,
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    ActivateGuard,
+    TokenService,
+    ShareService,
+    SupplierGuard,
+    NoLoggedGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
