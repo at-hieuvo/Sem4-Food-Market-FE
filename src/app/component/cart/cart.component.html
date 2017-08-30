@@ -37,15 +37,13 @@
                                 </div>
                             </div>
                         </div>
-                        <app-list-product-cart></app-list-product-cart>
-                        <app-list-product-cart></app-list-product-cart>
-                        <app-list-button-cart></app-list-button-cart>
+                        <app-product-cart *ngFor="let item of cart.carts" [product]="item"></app-product-cart>
+                        <app-button-cart></app-button-cart>
                     </div>
                 </form>
                 <p class="cart_navigation clearfix">
-                    <a class="btn btn-inverse" href="/collections/all" title="Tiếp tục mua hàng">Tiếp tục mua hàng</a>
+                    <a class="btn btn-inverse" [routerLink]="['/category']" title="Tiếp tục mua hàng">Tiếp tục mua hàng</a>
                 </p>
-
             </div>
         </div>
     </div>

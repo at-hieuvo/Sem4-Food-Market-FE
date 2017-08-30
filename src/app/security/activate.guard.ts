@@ -5,7 +5,7 @@ import swal from 'sweetalert2';
 import {ShareService} from '../service/share.service';
 
 @Injectable()
-export default class ActivateGuard implements CanActivate {
+export class ActivateGuard implements CanActivate {
 
   private can = false;
   constructor(private tokenService: TokenService,
@@ -21,9 +21,5 @@ export default class ActivateGuard implements CanActivate {
     swal('Thông báo', 'Mời bạn đăng nhập', 'error');
     this.router.navigate(['/login']);
     return false;
-  }
-
-  setCanActivate(can) {
-    this.can = can;
   }
 }

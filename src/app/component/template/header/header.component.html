@@ -414,15 +414,6 @@
 
             <div class="inner no-padding col-lg-8 col-md-8 col-sm-8 hidden-xs">
 
-
-              <script type="text/javascript">
-                  $(document).ready(function () {
-                      $(".searchbox select").change(function () {
-                          var val = $(this).val();
-                          window.location.href = "https://" + Bizweb.store + val;
-                      });
-                  });
-              </script>
               <div class="search_block_top clearfix">
 
                 <div class="nav-search visible">
@@ -495,12 +486,12 @@
               <div id="cart" class="blockcart_top clearfix">
                 <div class="media heading">
                   <div class="cart-inner media-body">
-                    <a href="/cart" id="CartToggle">
+                    <a [routerLink]="['/cart']" id="CartToggle">
                       <div class="icon-cart"></div>
                       <span class="fix-cart">GIỎ HÀNG</span>
-                      <span id="CartCount">1</span>
+                      <span id="CartCount">{{ cart.carts.length }}</span>
                       <span> - </span>
-                      <span id="CartCost">214.000₫</span>
+                      <span id="CartCost">{{ cart.getTotal() }} ₫</span>
                     </a>
                   </div>
                 </div>
