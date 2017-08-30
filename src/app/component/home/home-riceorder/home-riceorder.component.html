@@ -10,7 +10,7 @@
             <div class="item active">
               <div class="product_list">
                 <!-- start row product items --
-                  <!-- start one product items -->
+                <!-- start one product items -->
                 <div class="product_block col-md-4 col-sm-4 col-xs-12 col-sp-12" *ngFor=" let item of itemsNew">
                   <div class="item-variant clearfix product-block">
                     <div class="product-meta">
@@ -21,19 +21,19 @@
                         <span class="shopify-product-reviews-badge"></span>
                       </div>
                       <div class="content_price">
-																												<span class="price product-price sale-price">
-																														<span>{{item.price}}</span>
-																												</span>
+                        <span class="price product-price sale-price">
+                          <span>{{item.price}}</span>
+                        </span>
                         <span class="old-price product-price">
-																														<span>{{item.price}}</span>
-																												</span>
+                          <span>{{item.price}}</span>
+                        </span>
                       </div>
                       <div class="clearfix"></div>
                     </div>
                     <div class="product-image-container image">
                       <div class="layout-img">
                         <a class="product_img_link" href="" title="{{item.name}">
-                          <img class="img-responsive" src="../../../../assets/images/mon4.jpg " alt=""/>
+                        <img class="img-responsive" src="{{item.image}}" alt=""/>
                         </a>
                       </div>
                     </div>
@@ -49,8 +49,8 @@
     </div>
     <div class="category_desc fix-banner">
       <img class="img-responsive"
-           src="https://bizweb.dktcdn.net/100/038/419/themes/49902/assets/home_verticaltabs_1.png?1495677182625"
-           alt="Đồ ăn nóng">
+      src="https://bizweb.dktcdn.net/100/038/419/themes/49902/assets/home_verticaltabs_1.png?1495677182625"
+      alt="Đồ ăn nóng">
     </div>
   </div>
 
