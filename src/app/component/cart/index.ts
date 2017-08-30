@@ -1,11 +1,9 @@
-import {CartComponent} from './cart.component';
-import {CartHeaderComponent} from './cart-header/cart-header.component';
-import {ListButtonCartComponent} from './list-button-cart/list-button-cart.component';
-import {ListProductCartComponent} from './list-product-cart/list-product-cart.component';
+import { CartComponent } from './cart.component';
+import { ButtonCartComponent } from './button-cart/button-cart.component';
+import { ProductCartComponent } from './product-cart/product-cart.component';
 
-export const CARTCOMPONENTS = [
+export const ShoppingCartComponent = [
   CartComponent,
-  CartHeaderComponent,
-  ListButtonCartComponent,
-  ListProductCartComponent,
+  ButtonCartComponent,
+  ProductCartComponent,
 ]

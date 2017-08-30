@@ -5,7 +5,7 @@ import { routing } from './app.route';
 import { CATEGORYCOMPONENTS } from './component/category';
 import { PRODUCTCOMPONENTS } from './component/product';
 import { SEARCHCOMPONENTS } from './component/search';
-import { CARTCOMPONENTS } from './component/cart';
+import { ShoppingCartComponent } from './component/cart';
 import { TEMPLATECOMPONENTS } from './component/template';
 import { HOMECOMPONENTS } from './component/home';
 import { RegisterComponent } from './component/register/register.component';
@@ -14,18 +14,19 @@ import { LoginComponent } from './component/login/login.component';
 import {HttpModule} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AccountComponent} from './component/account/account.component';
-import ActivateGuard from './security/activate-guard';
 import {TokenService} from './service/token.service';
 import {ShareService} from './service/share.service';
-import SupplierGuard from './security/supplier-guard';
-import NoLoggedGuard from './security/no-logged-guard';
+import {ActivateGuard} from './security/activate.guard';
+import {SupplierGuard} from './security/supplier.guard';
+import {NoLoggedGuard} from './security/no-logged.guard';
+import {CartService} from './service/cart.service';
 @NgModule({
   declarations: [
     AppComponent,
     CATEGORYCOMPONENTS,
     PRODUCTCOMPONENTS,
     SEARCHCOMPONENTS,
-    CARTCOMPONENTS,
+    ShoppingCartComponent,
     TEMPLATECOMPONENTS,
     HOMECOMPONENTS,
     // ProductListComponent
@@ -46,7 +47,7 @@ import NoLoggedGuard from './security/no-logged-guard';
     TokenService,
     ShareService,
     SupplierGuard,
-    NoLoggedGuard
+    NoLoggedGuard, CartService
   ],
   bootstrap: [AppComponent]
 })

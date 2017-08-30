@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CategoryService} from '../../../../../service/category.service';
+import {ShareService} from '../../../../../service/share.service';
 
 @Component({
   selector: 'app-product-block',
@@ -8,12 +9,11 @@ import {CategoryService} from '../../../../../service/category.service';
 })
 export class ProductBlockComponent implements OnInit {
   @Input() product: any;
-  constructor(private service: CategoryService) { }
+  constructor(private service: ShareService) { }
   ngOnInit() {
     console.log(this.product);
   }
   addCart(product: any) {
-    this.service.cart.push(product);
-    console.log(this.service.cart);
+    this.service.addCart(this.product);
   }
 }
