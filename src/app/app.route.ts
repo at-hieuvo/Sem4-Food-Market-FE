@@ -17,11 +17,11 @@ const appRoutes: Routes = [
     canActivate: [NoLoggedGuard]
   },
   { path: '', component: HomeComponent },
-  { path: 'detail',
-    children: [
-      { path: '', component: ProductComponent },
-      { path: ':id', component: ProductComponent }
-    ]
+  { path: 'detail/:id', component: ProductComponent
+    // children: [
+    //   { path: '', component: ProductComponent },
+    //   { path: ':id', component: ProductComponent }
+    // ]
   },
   {
     path: 'cart',

@@ -4,7 +4,6 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ItemService {
-
   private url = 'http://localhost:8080/item/';
   constructor(private http: Http) {}
 
@@ -22,5 +21,17 @@ export class ItemService {
 
     getItemBest() {
         return this.http.get(this.url + 'getItemBest').map(res => res.json());
+    }
+
+    getItemById(id: number) {
+        return this.http.get(this.url + 'getItemByID/' + id).map(res => res.json());
+    }
+
+    getItemRelated(id: number) {
+        return this.http.get('http://localhost:8080/category/items/' + id).map(res => res.json());
+    }
+
+    getImageOfItem(id: number) {
+        return this.http.get('http://localhost:8080/images/item/' + id).map(res => res.json());
     }
 }

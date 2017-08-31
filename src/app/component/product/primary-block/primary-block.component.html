@@ -4,16 +4,13 @@
         <div class="product-left-column col-xs-12 col-sm-12 col-md-5">
             <div id="image-block" class="image clearfix">
 
-                                <span id="view_full_size">
-
-
-                                        <img id="proimage" class="img-responsive" itemprop="image"
-                                             src="//bizweb.dktcdn.net/thumb/grande/100/038/419/products/2518068breakfastfruitstrawberr-0191326f-27a1-4dd5-aadb-bfb69ec39df3.jpg?v=1456478319627"
-                                             alt="Sinh tố hoa quả">
-                                        <span class="span_link no-print status-enable"></span>
-                                </span>
+                <span id="view_full_size">
+                    <img id="proimage" class="img-responsive" itemprop="image"
+                         src="//bizweb.dktcdn.net/thumb/grande/100/038/419/products/2518068breakfastfruitstrawberr-0191326f-27a1-4dd5-aadb-bfb69ec39df3.jpg?v=1456478319627"
+                         alt="Sinh tố hoa quả">
+                    <span class="span_link no-print status-enable"></span>
+                </span>
             </div>
-
             <div id="views_block" class="clearfix ">
                 <div id="thumbs_list" class="no-owl">
                     <ul id="thumblist" class="owl-carousel owl-theme" style="display: block; opacity: 1;">
@@ -75,11 +72,9 @@
 
         </div>
         <div class="product-center-column col-xs-12 col-sm-12 col-md-7">
-            <h1 itemprop="name">Sinh tố hoa quả</h1>
+            <h1 itemprop="name">{{item.name}}</h1>
             <div class="product-description rte" itemprop="description">
-                Nhà hàng X-Jo là một trong những nhà hàng ẩm thực nổi tiếng trên khu vực Phố Cổ chuyên về ẩm
-                thực của Singapore như các món về gà tần thuốc bắc và những món ăn đặc sắc khác mang hương
-                vị đặc trưng được chế biến tỉ mỉ và khéo léo bởi những người đam mê về văn...
+               {{item.description}}
             </div>
 
 
@@ -88,10 +83,8 @@
                     <li><b>Nhãn hiệu: </b><a href="/vendors?query="></a></li>
                     <li><b>Tình trạng: </b>
                         <span class="availability">
-
-                                            <span class="available instock">Còn hàng</span>
-
-                                        </span>
+                            <span class="available instock">{{item.status}}</span>
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -109,17 +102,13 @@
 
 
             <span id="ProductPrice" class="price on-sale" itemprop="price">
-                    25.000₫
+                   {{item.price}}₫
             </span>
 
                         <span class="old-price">
-                    <span class="product-price-old">34.000₫</span>
+                    <span class="product-price-old">{{item.price}}₫</span>
                 </span>
-
-
                     </div>
-
-
                     <input type="hidden" name="variantId" value="2246368">
 
 

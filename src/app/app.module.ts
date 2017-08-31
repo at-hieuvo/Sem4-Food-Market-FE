@@ -13,6 +13,7 @@ import {LoginComponent} from './component/login/login.component';
 import {HttpModule} from '@angular/http';
 import {ItemService} from './service/item.service';
 import { CategoryService} from './service/category.service';
+import { FacebookModule } from 'ngx-facebook';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AccountComponent} from './component/account/account.component';
@@ -41,6 +42,7 @@ import NoLoggedGuard from './security/no-logged-guard';
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
+        FacebookModule.forRoot()
     ],
     providers: [
         ActivateGuard,
