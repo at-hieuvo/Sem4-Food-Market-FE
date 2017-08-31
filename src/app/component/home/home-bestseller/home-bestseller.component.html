@@ -9,23 +9,23 @@
           <div class="owl-wrapper-outer">
             <div class="owl-wrapper" style="width: 2340px; left: 0px; display: block;">
               <!-- srat one product item -->
-              <div class="owl-item active first" style="width: 195px;">
+              <div class="owl-item active first" style="width: 195px;" *ngFor="let item of itemsBest ">
                 <div class="item">
                   <div class="product_block  ">
                     <div class="item-variant clearfix product-block">
                       <div class="product-meta">
                         <h3 class="name">
-                          <a class="product-name" href="/sup-thap-cam" title="Súp thập cẩm">Súp thập cẩm</a>
+                          <a class="product-name" [routerLink]="['/detail',item.id]" title="{{item.name}}">{{item.name}}</a>
                         </h3>
                         <div class="review clearfix">
                           <span class="shopify-product-reviews-badge" data-id="995767"></span>
                         </div>
                         <div class="content_price">
                           <span class="price product-price sale-price">
-                           <span>80.000₫</span>
+                           <span>{{item.price}}₫</span>
                          </span>
                          <span class="old-price product-price">
-                          <span>87.000₫</span>
+                          <span>{{item.price}}₫</span>
                         </span>
                       </div>
                       <div class="clearfix"></div>
@@ -33,8 +33,8 @@
                     </div>
                     <div class="product-image-container image">
                       <div class="layout-img">
-                        <a class="product_img_link" href="/sup-thap-cam" title="Súp thập cẩm">
-                          <img class="replace-2x img-responsive" src="//bizweb.dktcdn.net/thumb/large/100/038/419/products/4952601sup-jpeg-fix.jpg?v=1487839657907" alt="Súp thập cẩm">
+                        <a class="product_img_link" [routerLink]="['/detail',item.id]" title="{{item.name}}">
+                          <img class="replace-2x img-responsive" src="{{item.avatar}}" alt="{{item.name}}">
                           <span class="product-additional" data-idproduct="995767">
                           </span>
                         </a>
@@ -49,7 +49,7 @@
                               <i class="fa fa-search-plus"></i>
                             </a>
                           </div><div class="view_detail">
-                          <a class="btn btn-inverse lnk_view" href="/sup-thap-cam" data-toggle="tooltip" title="" data-original-title="Xem">
+                          <a class="btn btn-inverse lnk_view" [routerLink]="['/detail',item.id]" data-toggle="tooltip" title="" data-original-title="Xem">
                             <i class="fa fa-eye"></i>
                           </a>
                         </div><div class="cart addtocart">

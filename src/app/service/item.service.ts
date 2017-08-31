@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class ItemService {
 
-  private url = "http://localhost:8080/item/";
+  private url = 'http://localhost:8080/item/';
   constructor(private http: Http) {}
 
   getAll() {
@@ -13,10 +13,14 @@ export class ItemService {
   }
 
   getItemPromotion() {
-    return this.http.get(this.url + 'getItemPromotion?quantity=1').map(res => res.json());
+    return this.http.get(this.url + 'getItemPromotion?quantity=6').map(res => res.json());
   }
 
-  getItemNew(){
-    return this.http.get(this.url + 'getItemNew?quantity=1').map(res => res.json());
+  getItemNew() {
+    return this.http.get(this.url + 'getItemNew?quantity=7').map(res => res.json());
   }
+
+    getItemBest() {
+        return this.http.get(this.url + 'getItemBest').map(res => res.json());
+    }
 }

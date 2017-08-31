@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ItemService} from '../../../service/item.service';
 
 @Component({
   selector: 'app-home-bestseller',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeBestsellerComponent implements OnInit {
 
-  constructor() { }
+    private itemsBest: any;
+    constructor(private itemService: ItemService) { }
 
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+        this.itemService.getItemBest().subscribe((data: any) => {
+            this.itemsBest = data;
+        });
+    }
 }

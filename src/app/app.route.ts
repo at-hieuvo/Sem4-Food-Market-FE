@@ -11,7 +11,6 @@ import ActivateGuard from './security/activate-guard';
 import SupplierGuard from './security/supplier-guard';
 import NoLoggedGuard from './security/no-logged-guard';
 const appRoutes: Routes = [
-
   { path: 'category', component: CategoryComponent },
   { path: 'login',
     component: LoginComponent,
