@@ -1,14 +1,47 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Http, RequestOptions, Headers} from '@angular/http';
+import { environment } from '../../environments/environment';
+import {ShareService} from './share.service';
+import swal from 'sweetalert2';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 @Injectable()
 export class TokenService {
   static TOKEN_KEY = 'AccessToken';
   static TOKEN_EXPIRES = 'Expires';
   public login = new Subject<any>();
-  timeOut: any;
-  constructor(private http: Http) {
+  constructor(private http: Http,
+              private shareService: ShareService) {
+  }
+  /** Get information basic of user */
+  getInfo() {
+    if (this.getToken() == null){
+      return {};
+    }
+    let headers;
+    headers = new Headers();
+    headers.append('Authorization', this.getToken());
+    let options;
+    options = new RequestOptions({
+      headers: headers
+    });
+    this.http.get(environment.hostname + '/user', options).map(res => res.json()).subscribe((data: any) => {
+     return data;
+    }, (err: any) => {
+      if (err.status === 401) {
+        this.refreshToken().subscribe((data: any) => {
+          this.setToken(data);
+          this.getInfo();
+        }, (err2: any) => {
+          if (err2.status === 401) {
+            swal('Thông báo', 'Mời bạn đăng nhập lại!', 'error');
+            this.removeToken();
+            this.shareService.loginToken(null);
+          }
+        });
+      }
+    });
   }
   getDataWithToken(url, headers) {
     return this.http.get(url, {
@@ -16,7 +49,7 @@ export class TokenService {
     }).map(res => res.json());
   }
   getRole() {
-    const url = 'http://localhost:8080/role';
+    const url = environment.hostname + '/role';
     let headers;
     headers = new Headers();
     headers.append('Authorization', this.getToken());
@@ -51,11 +84,11 @@ export class TokenService {
     return false;
   }
   getToken() {
-    return localStorage.getItem(TokenService.TOKEN_KEY);
+    return Cookie.get(TokenService.TOKEN_KEY);
   }
   refreshToken() {
   console.log('Refresh');
-    const url = 'http://localhost:8080/refresh';
+    const url = environment.hostname + '/refresh';
     let headers;
     headers = new Headers();
     headers.append('Authorization', this.getToken());
@@ -64,15 +97,9 @@ export class TokenService {
     }).map(res => res.json());
   }
   setToken(token) {
-    let expireDate;
-    expireDate = new Date();
-    expireDate.setSeconds(expireDate.getSeconds() + token.expire);
-    localStorage.setItem(TokenService.TOKEN_KEY, token.token);
-    localStorage.setItem(TokenService.TOKEN_EXPIRES, expireDate);
+    Cookie.set(TokenService.TOKEN_KEY, token.token, token.expire / 3600);
   }
   removeToken() {
-    localStorage.removeItem(TokenService.TOKEN_KEY);
-    localStorage.removeItem(TokenService.TOKEN_EXPIRES);
-    clearTimeout(this.timeOut);
+    Cookie.delete(TokenService.TOKEN_KEY);
   }
 }

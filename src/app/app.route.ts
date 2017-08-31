@@ -19,10 +19,9 @@ const appRoutes: Routes = [
     canActivate: [NoLoggedGuard]
   },
   { path: '', component: HomeComponent },
-  { path: 'detail',
+  { path: 'product',
     children: [
-      { path: '', component: ProductComponent },
-      { path: ':id', component: ProductComponent }
+      { path: ':id', component: ProductComponent}
     ]
   },
   {
@@ -48,4 +47,4 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent },
   { path: '**', component: NotFoundComponent }
 ];
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes,  { enableTracing: true });

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {MainPaymentComponent} from './main-payment/main-payment.component';
 
 @Component({
   selector: 'app-payment',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-
+  @ViewChild(MainPaymentComponent) main: MainPaymentComponent;
   constructor() { }
 
   ngOnInit() {
+  }
+  submitOrder() {
+    this.main.order();
   }
 
 }

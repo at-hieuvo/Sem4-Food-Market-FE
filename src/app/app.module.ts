@@ -20,6 +20,8 @@ import {ActivateGuard} from './security/activate.guard';
 import {SupplierGuard} from './security/supplier.guard';
 import {NoLoggedGuard} from './security/no-logged.guard';
 import {CartService} from './service/cart.service';
+import {CheckoutComponent} from './component/payment/index';
+import {OnFocusDirective} from './directive/focus-class.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,11 +31,12 @@ import {CartService} from './service/cart.service';
     ShoppingCartComponent,
     TEMPLATECOMPONENTS,
     HOMECOMPONENTS,
+      CheckoutComponent,
     // ProductListComponent
     LoginComponent,
      RegisterComponent,
-    PaymentComponent,
-      AccountComponent
+      AccountComponent,
+    OnFocusDirective
   ],
   imports: [
    routing,
