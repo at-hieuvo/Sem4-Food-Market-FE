@@ -14,7 +14,7 @@ export class ProductBlockComponent implements OnInit {
   ngOnInit() {
     console.log(this.product);
   }
-  addCart(product: any) {
+  addCart() {
     this.service.addCart(this.product);
   }
 }

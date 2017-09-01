@@ -17,4 +17,7 @@ export class ButtonCartComponent implements OnInit {
   confirmOrder() {
     this.cartService.removeCart();
   }
+  updateCart() {
+    this.cartService.updateCart();
+  }
 }
