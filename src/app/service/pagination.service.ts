@@ -8,7 +8,7 @@ export class PaginationService {
   pages: any;
   constructor(private http: Http) {
     this.pages = {};
-    this.pages.last_page = 0;
+    this.pages.totalPages = 0;
   }
   init(input) {
    this.pages = input;

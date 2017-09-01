@@ -1,6 +1,7 @@
 import {Injectable, OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Http} from '@angular/http';
+import swal from 'sweetalert2';
 
 @Injectable()
 export class CartService implements OnDestroy {
@@ -19,7 +20,6 @@ export class CartService implements OnDestroy {
     this.carts.forEach(function (item) {
       if (item.id === product.id) {
         existItem = item;
-        console.log('da co');
         item.quantity++;
         return false;
       }
@@ -27,10 +27,11 @@ export class CartService implements OnDestroy {
     if (existItem === undefined) {
       let cartItem;
       cartItem = Object.assign({}, product);
-      cartItem.quantity = 1;
+      cartItem.quantityCart = 1;
       console.log(cartItem);
       this.carts.push(cartItem);
     }
+    swal('Thông báo', 'Bạn đã thêm sản phẩm ' + product.name + ' vào giỏ hàng', 'success');
     this.saveCartToLocalStorage();
   }
   saveCartToLocalStorage() {
@@ -40,7 +41,7 @@ export class CartService implements OnDestroy {
     let total: number;
     total = 0;
     this.carts.forEach(function (item) {
-      total += (item.price * item.quantity);
+      total += (item.price * item.quantityCart);
     });
     return total;
   }

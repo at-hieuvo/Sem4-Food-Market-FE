@@ -12,8 +12,8 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit() {
   }
-  submitOrder() {
-    this.main.order();
+  submitOrder(items) {
+    this.main.order(items);
   }
 
 }

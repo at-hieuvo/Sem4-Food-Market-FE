@@ -87,3 +87,9 @@
   margin-left: 3px;
   margin-right: 3px
 }
+.product_list .product-block:nth-child(2n+1){
+  clear: left;
+}
+.clear_left {
+  clear: left;
+}

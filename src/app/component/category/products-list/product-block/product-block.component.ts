@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CategoryService} from '../../../../../service/category.service';
-import {ShareService} from '../../../../../service/share.service';
+import {CategoryService} from '../../../../service/category.service';
+import {ShareService} from '../../../../service/share.service';
 
 @Component({
   selector: 'app-product-block',
@@ -9,6 +9,7 @@ import {ShareService} from '../../../../../service/share.service';
 })
 export class ProductBlockComponent implements OnInit {
   @Input() product: any;
+  @Input() index: any;
   constructor(private service: ShareService) { }
   ngOnInit() {
     console.log(this.product);

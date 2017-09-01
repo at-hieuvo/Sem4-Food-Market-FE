@@ -10,14 +10,17 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
 export class TokenService {
   static TOKEN_KEY = 'AccessToken';
   static TOKEN_EXPIRES = 'Expires';
+  currentUser: any;
   public login = new Subject<any>();
   constructor(private http: Http,
               private shareService: ShareService) {
+    this.getInfo();
   }
   /** Get information basic of user */
   getInfo() {
-    if (this.getToken() == null){
-      return {};
+    if (this.getToken() == null) {
+      this.currentUser = null;
+      return;
     }
     let headers;
     headers = new Headers();
@@ -27,12 +30,13 @@ export class TokenService {
       headers: headers
     });
     this.http.get(environment.hostname + '/user', options).map(res => res.json()).subscribe((data: any) => {
-     return data;
+     this.currentUser = data;
     }, (err: any) => {
       if (err.status === 401) {
         this.refreshToken().subscribe((data: any) => {
           this.setToken(data);
           this.getInfo();
+          this.shareService.loginToken(this.currentUser);
         }, (err2: any) => {
           if (err2.status === 401) {
             swal('Thông báo', 'Mời bạn đăng nhập lại!', 'error');

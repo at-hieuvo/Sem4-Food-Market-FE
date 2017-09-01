@@ -169,7 +169,7 @@
         <div class="section pt10">
           <div class="section__content">
             <div class="form-group m0">
-              <textarea name="note" value="" class="field__input form-control m0" placeholder="Ghi chú"></textarea>
+              <textarea formControlName="note" class="field__input form-control m0" placeholder="Ghi chú"></textarea>
             </div>
           </div>
         </div>
@@ -224,11 +224,6 @@
                 </div>
               </div>
 
-
-              <a href="javascript:void(0)" data-toggle="modal" data-target="#moca-modal" data-backdrop="static" data-keyboard="false" class="trigger-moca-modal" style="display: none;" title="Thanh toán qua Moca">
-              </a>
-              <a href="javascript:void(0)" data-toggle="modal" data-target="#moca-error-modal" class="trigger-moca-error-modal" style="display: none;" title="Lỗi thanh toán qua Moca">
-              </a>
               <div class="modal fade moca-modal" id="moca-modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog">
                   <div class="modal-content">

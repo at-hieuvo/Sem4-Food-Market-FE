@@ -13,7 +13,7 @@ export class SidebarPaymentComponent implements OnInit {
     this.cart = this.cartService;
   }
   order() {
-    this.orderEvent.emit();
+    this.orderEvent.emit(this.cart.carts);
   }
   ngOnInit() {
   }

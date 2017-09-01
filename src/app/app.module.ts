@@ -54,7 +54,10 @@ import {RangePipe} from './pipe/range.pipe';
     TokenService,
     ShareService,
     SupplierGuard,
-    NoLoggedGuard, CartService, OrderService, PaginationService
+    NoLoggedGuard,
+    CartService,
+    OrderService,
+    PaginationService
   ],
   bootstrap: [AppComponent]
 })

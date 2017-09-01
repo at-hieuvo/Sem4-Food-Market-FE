@@ -4,6 +4,7 @@ import {PaginationService} from '../../service/pagination.service';
 import {Http} from '@angular/http';
 import {ActivatedRoute, Route, Router} from '@angular/router';
 import {ProductsListComponent} from './products-list/products-list.component';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-category',
@@ -34,9 +35,9 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
   }
   getList (page) {
-    this.http.get('http://192.168.33.10/api/foods?page=' + page).map(res => res.json()).subscribe((data: any) => {
+    this.http.get(environment.hostname + '/item/all?page=' + (this.page - 1) + '&size=12').map(res => res.json()).subscribe((data: any) => {
       console.log(data);
-      this.productListComponent.items = data.data;
+      this.productListComponent.items = data.content;
       this.paginationService.init(data);
     }, (err: any) => {
 
