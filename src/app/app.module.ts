@@ -20,6 +20,11 @@ import {ActivateGuard} from './security/activate.guard';
 import {SupplierGuard} from './security/supplier.guard';
 import {NoLoggedGuard} from './security/no-logged.guard';
 import {CartService} from './service/cart.service';
+import {CheckoutComponent} from './component/payment/index';
+import {OnFocusDirective} from './directive/focus-class.directive';
+import {OrderService} from './service/order.service';
+import {PaginationService} from './service/pagination.service';
+import {RangePipe} from './pipe/range.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,11 +34,13 @@ import {CartService} from './service/cart.service';
     ShoppingCartComponent,
     TEMPLATECOMPONENTS,
     HOMECOMPONENTS,
+      CheckoutComponent,
     // ProductListComponent
     LoginComponent,
      RegisterComponent,
-    PaymentComponent,
-      AccountComponent
+      AccountComponent,
+    OnFocusDirective,
+    RangePipe
   ],
   imports: [
    routing,
@@ -47,7 +54,10 @@ import {CartService} from './service/cart.service';
     TokenService,
     ShareService,
     SupplierGuard,
-    NoLoggedGuard, CartService
+    NoLoggedGuard,
+    CartService,
+    OrderService,
+    PaginationService
   ],
   bootstrap: [AppComponent]
 })

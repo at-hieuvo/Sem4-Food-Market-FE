@@ -5,7 +5,7 @@
       <a href="/collections/all/products/sinh-to-hoa-qua?variantid=2246368"
          class="cart__image">
         <img width="75" height="75" alt="Sinh tố hoa quả"
-             src="{{ product.image }}">
+             src="{{ product.avatar }}">
       </a>
     </div>
   </div>
@@ -13,7 +13,7 @@
     <div class="cpro_item_inner">
       <span class="visible-xs">Tên: </span>
       <a href="/sinh-to-hoa-qua?variantid=2246368" class="product_name">
-        {{ product.title }}
+        {{ product.name }}
       </a>
     </div>
   </div>
@@ -26,14 +26,14 @@
   <div class="cpro_item text-center col-xs-12 col-sm-2 col-md-2">
     <div class="cpro_item_inner">
       <span class="visible-xs">Số lượng: </span>
-      <input class="input-text qty" [ngModel]="product.quantity" (change)="changeQuantity($event.target.value)" type="number" name="Lines"
+      <input class="input-text qty" [ngModel]="product.quantityCart" (change)="changeQuantity($event.target.value)" type="number" name="Lines"
              min="0" data-id="3203311">
     </div>
   </div>
   <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
     <div class="cpro_item_inner">
       <span class="visible-xs">Tổng: </span>
-      <span class="price product-price">{{ product.price * product.quantity }} ₫</span>
+      <span class="price product-price">{{ product.price * product.quantityCart }} ₫</span>
     </div>
   </div>
   <div class="cpro_item col-xs-12 col-sm-1 col-md-1">

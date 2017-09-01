@@ -13,16 +13,18 @@ import {NoLoggedGuard} from './security/no-logged.guard';
 import {PaymentComponent} from './component/payment/payment.component';
 const appRoutes: Routes = [
 
-  { path: 'category', component: CategoryComponent },
+  { path: 'category', children: [
+    {path: '', component: CategoryComponent },
+    {path: ':page', component: CategoryComponent }]
+  },
   { path: 'login',
     component: LoginComponent,
     canActivate: [NoLoggedGuard]
   },
   { path: '', component: HomeComponent },
-  { path: 'detail',
+  { path: 'product',
     children: [
-      { path: '', component: ProductComponent },
-      { path: ':id', component: ProductComponent }
+      { path: ':id', component: ProductComponent}
     ]
   },
   {

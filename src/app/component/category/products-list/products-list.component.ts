@@ -9,11 +9,11 @@ import {CategoryService} from '../../../service/category.service';
 export class ProductsListComponent implements OnInit {
   items: Array<any> = [];
   constructor(private service: CategoryService) {
-    this.service.getList().subscribe((data: any) => {
-      this.items = data.items;
-    }, (err: any) => {
-      console.log('errors');
-    });
+    // this.service.getList().subscribe((data: any) => {
+    //   this.items = data.items;
+    // }, (err: any) => {
+    //   console.log('errors');
+    // });
   }
 
 

@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       this.http.post(url, data, options).map(res => res.json()).subscribe((a: any) => {
       console.log(a);
       this.tokenService.setToken(a);
-      this.service.loginToken(a.token);
+      this.service.loginToken(a);
       swal('Thông báo', 'Đăng nhập thành công!', 'success');
       this.router.navigate(['/home']);
     }, (err: any) => {

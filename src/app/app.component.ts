@@ -20,16 +20,22 @@ export class AppComponent implements OnInit {
   constructor(private router: Router,
               private titleService: Title,
               private activatedRoute: ActivatedRoute,
-              private serviceShare: ShareService) {
+              private serviceShare: ShareService,
+              private _router: Router) {
   }
   ngOnInit() {
+    this._router.events.subscribe((event: NavigationEnd) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
     this.serviceShare.login.subscribe(data => {
-      this.header.currentUser = data;
+      this.header.login(data);
     });
     this.serviceShare.cart.subscribe(data => {
       // console.log(data);
       this.header.addCart(data);
-    })
+    });
     this.router.events
         .filter((event) => event instanceof NavigationEnd)
         .map(() => this.activatedRoute)
