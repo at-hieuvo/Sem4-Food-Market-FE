@@ -13,7 +13,10 @@ import {NoLoggedGuard} from './security/no-logged.guard';
 import {PaymentComponent} from './component/payment/payment.component';
 const appRoutes: Routes = [
 
-  { path: 'category', component: CategoryComponent },
+  { path: 'category', children: [
+    {path: '', component: CategoryComponent },
+    {path: ':page', component: CategoryComponent }]
+  },
   { path: 'login',
     component: LoginComponent,
     canActivate: [NoLoggedGuard]
@@ -47,4 +50,4 @@ const appRoutes: Routes = [
   {path: 'home', component: HomeComponent },
   { path: '**', component: NotFoundComponent }
 ];
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes,  { enableTracing: true });
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

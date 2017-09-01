@@ -22,6 +22,9 @@ import {NoLoggedGuard} from './security/no-logged.guard';
 import {CartService} from './service/cart.service';
 import {CheckoutComponent} from './component/payment/index';
 import {OnFocusDirective} from './directive/focus-class.directive';
+import {OrderService} from './service/order.service';
+import {PaginationService} from './service/pagination.service';
+import {RangePipe} from './pipe/range.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,8 @@ import {OnFocusDirective} from './directive/focus-class.directive';
     LoginComponent,
      RegisterComponent,
       AccountComponent,
-    OnFocusDirective
+    OnFocusDirective,
+    RangePipe
   ],
   imports: [
    routing,
@@ -50,7 +54,7 @@ import {OnFocusDirective} from './directive/focus-class.directive';
     TokenService,
     ShareService,
     SupplierGuard,
-    NoLoggedGuard, CartService
+    NoLoggedGuard, CartService, OrderService, PaginationService
   ],
   bootstrap: [AppComponent]
 })
