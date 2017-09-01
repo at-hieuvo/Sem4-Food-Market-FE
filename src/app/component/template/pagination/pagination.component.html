@@ -2,15 +2,15 @@
   <div id="pagination" class="clearfix">
     <ul class="pagination">
 
-      <li class="pagination_previous disabled">
+      <li class="pagination_previous" [ngClass]="{'disabled': pagination.pages.first}">
         <span><i class="fa fa-chevron-left"></i></span>
       </li>
       <!--<li  class="active"><span>1</span></li>-->
-      <li [ngClass]="{'active': page + 1 == pagination.pages.number}"
+      <li [ngClass]="{'active': page == pagination.pages.number}"
           *ngFor="let page of [] | range: pagination.pages.totalPages">
         <a [routerLink]="['/category']" [queryParams]="{ page: page +1 }">{{page + 1}}</a>
       </li>
-      <li class="pagination_next"><a [routerLink]="['/category']" [queryParams]="{ page: pagination.pages.number + 1 }"><i class="fa fa-chevron-right"></i></a></li>
+      <li class="pagination_next" [ngClass]="{'disabled': pagination.pages.last}"><a  [routerLink]="['/category']" [queryParams]="{ page: pagination.pages.number + 1 }"><i class="fa fa-chevron-right"></i></a></li>
     </ul>
   </div>
 </div>
