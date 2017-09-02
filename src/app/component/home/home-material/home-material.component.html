@@ -3,7 +3,7 @@
     <h3 class="title_block pull-left">Hang Ngay</h3>
   </div>
   <div class="row">
-    <div class="col-md-8">
+    <div class="">
       <div class="category_content">
         <div class="category_product_tab">
           <div class="tab-content owl-row">
@@ -18,7 +18,7 @@
                         <div class="item-variant clearfix product-block">
                           <div class="product-meta">
                             <h3 class="name">
-                              <a class="product-name" href="#" title="{{item.name}}">{{item.name}}</a>
+                              <a class="product-name" [routerLink]="['/detail',item.id]" title="{{item.name}}">{{item.name}}</a>
                             </h3>
                             <div class="review clearfix">
                               <span class="shopify-product-reviews-badge"></span>
@@ -35,7 +35,7 @@
                           </div>
                           <div class="product-image-container image">
                             <div class="layout-img">
-                              <a class="product_img_link" href="" title="Cơm tấm ">
+                              <a class="product_img_link" [routerLink]="['/detail',item.id]" title="{{item.name}}">
                                 <img class="img-responsive" src="{{item.avatar}} " alt=""/>
                               </a>
                             </div>

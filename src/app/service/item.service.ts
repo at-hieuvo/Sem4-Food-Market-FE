@@ -24,7 +24,7 @@ export class ItemService {
     }
 
     getItemById(id: number) {
-        return this.http.get(this.url + 'getItemByID/' + id).map(res => res.json());
+        return this.http.get(this.url + 'getItemById/' + id).map(res => res.json());
     }
 
     getItemRelated(id: number) {

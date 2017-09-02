@@ -12,6 +12,7 @@ export class PrimaryBlockComponent implements OnInit, OnDestroy {
     id: number;
     private sub: any;
     private item: any;
+    images_item: any;
     constructor(private route: ActivatedRoute, private router: Router, private itemService: ItemService) { }
 
     ngOnInit() {
@@ -19,7 +20,10 @@ export class PrimaryBlockComponent implements OnInit, OnDestroy {
             this.id = +params['id'];
             this.itemService.getItemById(this.id).subscribe((data: any) => {
                 this.item = data;
-                console.log(this.item);
+            });
+            this.itemService.getImageOfItem(this.id).subscribe((data: any) => {
+                this.images_item = data;
+                console.log(this.images_item);
             });
         });
     }
