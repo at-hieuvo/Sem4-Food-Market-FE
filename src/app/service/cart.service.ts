@@ -19,7 +19,6 @@ export class CartService implements OnDestroy {
     this.carts.forEach(function (item) {
       if (item.id === product.id) {
         existItem = item;
-        console.log('da co');
         item.quantity++;
         return false;
       }
@@ -40,6 +39,7 @@ export class CartService implements OnDestroy {
     let total: number;
     total = 0;
     this.carts.forEach(function (item) {
+
       total += (item.price * item.quantity);
     });
     return total;

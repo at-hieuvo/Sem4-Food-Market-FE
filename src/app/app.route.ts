@@ -7,27 +7,35 @@ import { HomeComponent } from './component/home/home.component';
 import {NotFoundComponent} from './component/template/not-found/not-found.component';
 import {LoginComponent} from './component/login/login.component';
 import {AccountComponent} from './component/account/account.component';
-import ActivateGuard from './security/activate-guard';
-import SupplierGuard from './security/supplier-guard';
-import NoLoggedGuard from './security/no-logged-guard';
+import {SupplierGuard} from './security/supplier.guard';
+import {ActivateGuard} from './security/activate.guard';
+import {NoLoggedGuard} from './security/no-logged.guard';
+import {PaymentComponent} from './component/payment/payment.component';
 const appRoutes: Routes = [
-  { path: 'category', component: CategoryComponent },
+
+  { path: 'category', children: [
+    {path: '', component: CategoryComponent },
+    {path: ':page', component: CategoryComponent }]
+  },
   { path: 'login',
     component: LoginComponent,
     canActivate: [NoLoggedGuard]
   },
   { path: '', component: HomeComponent },
-  { path: 'detail/:id', component: ProductComponent
-    // children: [
-    //   { path: '', component: ProductComponent },
-    //   { path: ':id', component: ProductComponent }
-    // ]
+  { path: 'detail',
+    children: [
+      { path: ':id', component: ProductComponent}
+    ]
   },
   {
     path: 'cart',
     component: CartComponent,
     data: { title: 'Cart List'},
-    canActivate: [SupplierGuard]
+  },
+  {
+    path: 'checkout',
+    component: PaymentComponent,
+    data: { title: 'Cart List'},
   },
   {
     path: 'account',

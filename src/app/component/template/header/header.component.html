@@ -158,12 +158,12 @@
           <nav>
             <div class="header_user_info e-scale 1">
               <ul class="links">
-                <li *ngIf="currentUser == null"><a id="customer_login_link" [routerLink]="['/login']" title="Đăng nhập">Đăng
+                <li *ngIf="user.currentUser == null"><a id="customer_login_link" [routerLink]="['/login']" title="Đăng nhập">Đăng
                   nhập</a></li>
-                <li *ngIf="currentUser != null"><a (click)="logout()" title="Đăng xuất">Đăng xuât</a></li>
-                <li *ngIf="currentUser != null"><a (click)="getInfo()" [routerLink]="['/account']" title="Cá nhân">Cá
+                <li *ngIf="user.currentUser != null"><a (click)="logout()" title="Đăng xuất">Đăng xuât</a></li>
+                <li *ngIf="user.currentUser != null"><a (click)="getInfo()" [routerLink]="['/account']" title="Cá nhân">Cá
                   Nhân</a></li>
-                <li *ngIf="currentUser == null"><a [routerLink]="['/register']" title="Đăng ký">Đăng ký</a></li>
+                <li *ngIf="user.currentUser == null"><a [routerLink]="['/register']" title="Đăng ký">Đăng ký</a></li>
               </ul>
             </div>
           </nav>
@@ -414,15 +414,6 @@
 
             <div class="inner no-padding col-lg-8 col-md-8 col-sm-8 hidden-xs">
 
-
-              <script type="text/javascript">
-                  $(document).ready(function () {
-                      $(".searchbox select").change(function () {
-                          var val = $(this).val();
-                          window.location.href = "https://" + Bizweb.store + val;
-                      });
-                  });
-              </script>
               <div class="search_block_top clearfix">
 
                 <div class="nav-search visible">
@@ -495,12 +486,12 @@
               <div id="cart" class="blockcart_top clearfix">
                 <div class="media heading">
                   <div class="cart-inner media-body">
-                    <a href="/cart" id="CartToggle">
+                    <a [routerLink]="['/cart']" id="CartToggle">
                       <div class="icon-cart"></div>
                       <span class="fix-cart">GIỎ HÀNG</span>
-                      <span id="CartCount">1</span>
+                      <span id="CartCount">{{ cart.carts.length }}</span>
                       <span> - </span>
-                      <span id="CartCost">214.000₫</span>
+                      <span id="CartCost">{{ cart.getTotal() }} ₫</span>
                     </a>
                   </div>
                 </div>

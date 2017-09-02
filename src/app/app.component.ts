@@ -17,11 +17,24 @@ import {TokenService} from './service/token.service';
 export class AppComponent implements OnInit {
   @ViewChild(HeaderComponent) header: HeaderComponent;
   title = 'app';
-  constructor(private router: Router, private titleService: Title, private activatedRoute: ActivatedRoute, private service: ShareService) {
+  constructor(private router: Router,
+              private titleService: Title,
+              private activatedRoute: ActivatedRoute,
+              private serviceShare: ShareService,
+              private _router: Router) {
   }
   ngOnInit() {
-    this.service.login.subscribe(data => {
-      this.header.currentUser = data;
+    this._router.events.subscribe((event: NavigationEnd) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
+    });
+    this.serviceShare.login.subscribe(data => {
+      this.header.login(data);
+    });
+    this.serviceShare.cart.subscribe(data => {
+      // console.log(data);
+      this.header.addCart(data);
     });
     this.router.events
         .filter((event) => event instanceof NavigationEnd)
