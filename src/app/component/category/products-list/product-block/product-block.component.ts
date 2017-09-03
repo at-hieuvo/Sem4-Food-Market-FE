@@ -12,7 +12,7 @@ export class ProductBlockComponent implements OnInit {
   @Input() index: any;
   constructor(private service: ShareService) { }
   ngOnInit() {
-    console.log(this.product);
+    // console.log(this.product);
   }
   addCart() {
     this.service.addCart(this.product);

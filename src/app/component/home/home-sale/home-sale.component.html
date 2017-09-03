@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-12 col-lg-3 col-md-12 block category_productlist">
+<div class="col-xs-12 col-sm-12 col-lg-4 col-md-4 block category_productlist">
     <h2 class="page-subheading "> Khuyến mãi </h2>
     <div class="block_content">
         <div class="product_list_owl">
@@ -20,10 +20,10 @@
                                             </div>
                                             <div class="content_price">
                       <span class="price product-price sale-price">
-                       <span>{{item.price}}</span>
+                       <span>{{item.price.toLocaleString('vi')}}</span>
                      </span>
                                                 <span class="old-price product-price">
-                       <span>{{item.price}}</span>
+                       <span>{{item.price.toLocaleString('vi')}}</span>
                      </span>
                                             </div>
                                             <div class="clearfix"></div>
@@ -32,8 +32,9 @@
                                             <div class="layout-img">
                                                 <a class="product_img_link" [routerLink]="['/detail',item.id]"
                                                    title="{{item.name}}">
-                                                    <img class="replace-2x img-responsive" src="{{item.avatar}}"
-                                                         alt="{{item.name}}">
+                                                    <img class="replace-2x img-responsive" src="./assets/images/upload{{item.avatar}}"
+                                                         alt="{{item.name}}"
+                                                         onerror="this.src='./assets/images/upload/noimage.gif'">
                                                 </a>
                                             </div>
                                         </div>

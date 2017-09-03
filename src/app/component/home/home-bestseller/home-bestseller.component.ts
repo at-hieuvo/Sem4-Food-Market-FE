@@ -8,7 +8,7 @@ import {ItemService} from '../../../service/item.service';
 })
 export class HomeBestsellerComponent implements OnInit {
 
-    private itemsBest: any;
+    itemsBest: any;
     constructor(private itemService: ItemService) { }
 
     ngOnInit() {

@@ -3,8 +3,8 @@ import { ItemService } from '../../../service/item.service';
 
 @Component({
   selector: 'app-home-material',
-  templateUrl: './home-material.component.html',
-  styleUrls: ['./home-material.component.css']
+  templateUrl: './home-tool.component.html',
+  styleUrls: ['./home-tool.component.css']
 })
 export class HomeMaterialComponent implements OnInit {
 

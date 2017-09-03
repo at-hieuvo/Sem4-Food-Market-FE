@@ -1,0 +1,113 @@
+<div class="col-xs-12 col-sm-12 col-lg-9 col-md-12">
+  <div class="category_sub">
+    <h3 class="title_block pull-left">Mới</h3>
+  </div>
+  <div class="row">
+    <div class="">
+      <div class="category_content">
+        <div class="category_product_tab">
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="product_list">
+                <!-- start row product items --
+                <!-- start one product items -->
+                <!--<app-product-block [product]="item"  *ngFor=" let item of itemsNew" ></app-product-block>-->
+                <div [ngClass]="{'clear_left': (index % 3 == 0)}" class="product_block col-md-4 col-sm-4 col-xs-12 col-sp-12"
+                     *ngFor=" let product of itemsNew; let index = index">
+                  <div class="item-variant clearfix product-block">
+                    <div class="product-meta">
+                      <h3 class="name">
+                        <a class="product-name"
+                           href="/detail/1"
+                           title="Pizza hải sản">{{product.name}}</a>
+                      </h3>
+                      <div class="review clearfix">
+                        <span class="shopify-product-reviews-badge" data-id="995766"></span>
+                      </div>
+                      <div class="content_price">
+						<span class="price product-price sale-price">
+							<span>{{ product.price.toLocaleString('vi') }}₫</span>
+						</span>
+
+
+                        <span class="old-price product-price">
+								<span>90.000₫</span>
+							</span>
+
+
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="product-desc"> Nhà hàng X-Jo là một trong những nhà hàng ẩm thực nổi
+                        tiếng trên khu vực Phố Cổ chuyên về ẩm thực của Singapore như các món về gà...
+                      </div>
+                    </div>
+                    <div class="product-image-container image">
+                      <div class="layout-img">
+                        <a class="product_img_link"
+                           href="/detail/1"
+                           title="Pizza hải sản">
+                          <img class="replace-2x img-responsive"
+                               src="./assets/images/upload/{{product.avatar}}"
+                               onerror="this.src='./assets/images/upload/noimage.gif'">
+                          <span class="product-additional" data-idproduct="995766">
+	            <img class="replace-2x img-responsive"
+                   src="./assets/images/upload/{{product.avatar}}"
+                   onerror="this.src='./assets/images/upload/noimage.gif'">
+	</span>
+                        </a>
+                      </div>
+                      <span class="product-label sale-box">
+              <span class="label-sale">Sale</span>
+            </span>
+                      <div class="right">
+                        <div class="action">
+                          <div class="quickview">
+                            <a class="btn-inverse btn" href="#quick-view-product"
+                               data-handle="pizza-hai-san" data-toggle="tooltip" title=""
+                               data-original-title="Xem nhanh">
+                              <i class="fa fa-search-plus"></i>
+                            </a>
+                          </div>
+                          <div class="view_detail">
+                            <a class="btn btn-inverse lnk_view"
+                               href="detail/1"
+                               data-toggle="tooltip" title="" data-original-title="Xem">
+                              <i class="fa fa-eye"></i>
+                            </a>
+                          </div>
+                          <div class="cart addtocart">
+
+                            <form onsubmit="return false" method="post" enctype="multipart/form-data"
+                                  class="form-ajaxtocart" id="product-actions-995766">
+                              <input type="hidden" name="id" value="8697313">
+                              <input type="hidden" name="variantId" value="8697313">
+                              <button class="btn btn-outline-inverse ajax_addtocart" type="button"
+                                      value="Submit" (click)="addCart()" >
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Mua ngay</span>
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!--end one product-item  -->
+                <!-- start one product items -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="category_desc fix-banner">
+      <img class="img-responsive"
+      src="https://bizweb.dktcdn.net/100/038/419/themes/49902/assets/home_verticaltabs_1.png?1495677182625"
+      alt="Đồ ăn nóng">
+    </div>
+  </div>
+
+
+</div>

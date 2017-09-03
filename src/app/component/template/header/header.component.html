@@ -198,7 +198,7 @@
 
 
                       <li class="active">
-                        <a class="" href="/" title="Trang chủ" target="_self">
+                        <a class="" [routerLink]="['/']" title="Trang chủ" target="_self">
                           <span class="">Trang chủ</span>
                         </a>
                       </li>
@@ -491,7 +491,7 @@
                       <span class="fix-cart">GIỎ HÀNG</span>
                       <span id="CartCount">{{ cart.carts.length }}</span>
                       <span> - </span>
-                      <span id="CartCost">{{ cart.getTotal() }} ₫</span>
+                      <span id="CartCost">{{ cart.getTotal().toLocaleString('vi') }} ₫</span>
                     </a>
                   </div>
                 </div>
