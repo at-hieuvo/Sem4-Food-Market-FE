@@ -14,7 +14,8 @@
                     <div class="product_list">
                       <!-- start row product items --
                       <!-- start one product items -->
-                      <div class="product_block col-md-4 col-sm-4 col-xs-12 col-sp-12" *ngFor=" let item of itemsMaterial">
+                      <div [ngClass]="{'clear_left': (index % 2 == 0)}" class="product_block col-md-6 col-sm-6 col-xs-12 col-sp-12"
+                           *ngFor=" let item of itemsMaterial">
                         <div class="item-variant clearfix product-block">
                           <div class="product-meta">
                             <h3 class="name">
@@ -25,10 +26,10 @@
                             </div>
                             <div class="content_price">
                               <span class="price product-price sale-price">
-                                <span>{{item.price}}</span>
+                                <span>{{item.price.toLocaleString('vi')}}</span>
                               </span>
                               <span class="old-price product-price">
-                                <span>{{item.price}}</span>
+                                <span>{{item.price.toLocaleString('vi')}}</span>
                               </span>
                             </div>
                             <div class="clearfix"></div>
@@ -36,7 +37,8 @@
                           <div class="product-image-container image">
                             <div class="layout-img">
                               <a class="product_img_link" [routerLink]="['/detail',item.id]" title="{{item.name}}">
-                                <img class="img-responsive" src="{{item.avatar}} " alt=""/>
+                                <img class="img-responsive" src="./assets/images/upload/{{item.avatar}}"
+                                     onerror="this.src='./assets/images/upload/noimage.gif'" alt="{{item.name}}"/>
                               </a>
                             </div>
                           </div>
