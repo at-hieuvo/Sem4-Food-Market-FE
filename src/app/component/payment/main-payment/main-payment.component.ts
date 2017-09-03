@@ -37,8 +37,9 @@ export class MainPaymentComponent implements OnInit {
     });
   }
   order(items) {
-    console.log(this.currentUser);
-    if (this.currentUser.id === undefined) {
+    // console.log(items);
+    // console.log(this.currentUser);
+    if (this.tokenService.currentUser === undefined) {
       swal('Thông báo!', 'Mời bạn đăng nhập rồi thực hiện chức năng này!', 'error');
       return;
     }
@@ -54,17 +55,17 @@ export class MainPaymentComponent implements OnInit {
         'phone': model.shipAddress.phone,
         'note': model.note,
         'transportedAt': '2017-09-09',
-        'userId': this.currentUser.id,
+        'userId': this.tokenService.currentUser.id,
         'promotionId': 1,
         'shipId': 1,
         'orderItems': items
       };
     console.log(data);
       this.orderService.sendOrder(data).subscribe((a: any) => {
-        console.log(a);
+        // console.log(a);
         swal('Thông báo', 'Đặt hàng thành công!', 'success');
       }, (err: any) => {
-        console.log(err);
+        // console.log(err);
         swal('Thông báo!', 'Đặt hàng thất bại!', 'error');
       });
     // }

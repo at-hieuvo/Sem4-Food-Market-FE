@@ -8,8 +8,8 @@ import {CartService} from '../../service/cart.service';
 })
 export class CartComponent {
   cart: any;
+  title = 'app';
   constructor(private cartService: CartService) {
     this.cart = this.cartService;
   }
-  title = 'app';
 }

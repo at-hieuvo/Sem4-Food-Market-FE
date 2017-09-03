@@ -40,7 +40,10 @@ export class LoginComponent implements OnInit {
       'password': model.password,
     };
     let headers;
-    headers = new Headers({ 'Content-Type': 'application/json' });
+    headers = new Headers({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
     // headers.set('Content-Type', 'application/json')
     //  headers.append('Content-Type', 'application/json');
      console.log(headers);
