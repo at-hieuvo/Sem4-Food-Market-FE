@@ -3,7 +3,6 @@ import {Subject} from 'rxjs/Subject';
 import {Http} from '@angular/http';
 import swal from 'sweetalert2';
 import {environment} from '../../environments/environment';
-import {forEach} from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class CartService implements OnDestroy {
@@ -24,15 +23,17 @@ export class CartService implements OnDestroy {
         existItem = item;
         item.quantityCart++;
         return false;
+
       }
     });
     if (existItem === undefined) {
       let cartItem;
       cartItem = Object.assign({}, product);
-      cartItem.quantity = 1;
-      console.log(cartItem);
+      cartItem.quantityCart = 1;
+      // console.log(cartItem);
       this.carts.push(cartItem);
     }
+    console.log(this.carts);
     this.saveCartToLocalStorage();
   }
   saveCartToLocalStorage() {
@@ -43,7 +44,7 @@ export class CartService implements OnDestroy {
     total = 0;
     this.carts.forEach(function (item) {
 
-      total += (item.price * item.quantity);
+      total += (item.price * item.quantityCart);
     });
     return total;
   }

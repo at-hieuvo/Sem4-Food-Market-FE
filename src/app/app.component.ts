@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
       this.header.login(data);
     });
     this.serviceShare.cart.subscribe(data => {
-      // console.log(data);
+      console.log(data);
       this.header.addCart(data);
     });
     this.router.events

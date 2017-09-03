@@ -9,12 +9,12 @@ import { ItemService } from '../../../service/item.service';
 export class HomeSaleComponent implements OnInit {
 
 itemsPromotion: any;
-  constructor(private itemService:ItemService) { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.itemService.getItemPromotion().subscribe((data: any) => {
       this.itemsPromotion = data;
-    })
+    });
   }
 
 }

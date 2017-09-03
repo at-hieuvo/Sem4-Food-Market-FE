@@ -14,7 +14,7 @@ const appRoutes: Routes = [
 
   { path: 'category', children: [
     {path: '', component: CategoryComponent },
-    {path: ':page', component: CategoryComponent }]
+    {path: ':id', component: CategoryComponent }]
   },
   { path: 'login',
     component: LoginComponent,
