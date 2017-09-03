@@ -13,6 +13,7 @@ export class PaymentComponent implements OnInit {
   ngOnInit() {
   }
   submitOrder(items) {
+    // console.log(items);
     this.main.order(items);
   }
 

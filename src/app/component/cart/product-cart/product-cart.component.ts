@@ -13,7 +13,7 @@ export class ProductCartComponent implements OnInit {
   }
   changeQuantity(val) {
     this.product.quantityCart = val;
-    this.cartService.saveCartToLocalStorage();
+    // this.cartService.saveCartToLocalStorage();
   }
   removeItem(item) {
     this.cartService.removeItem(item);
