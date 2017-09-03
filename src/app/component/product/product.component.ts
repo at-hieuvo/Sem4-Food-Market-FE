@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id'];
       if (!this.id) {

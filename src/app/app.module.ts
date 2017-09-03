@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -11,7 +12,12 @@ import { HOMECOMPONENTS } from './component/home';
 import { RegisterComponent } from './component/register/register.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { LoginComponent } from './component/login/login.component';
+
 import {HttpModule} from '@angular/http';
+import {ItemService} from './service/item.service';
+import { CategoryService} from './service/category.service';
+import { FacebookModule } from 'ngx-facebook';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AccountComponent} from './component/account/account.component';
 import {TokenService} from './service/token.service';
@@ -25,6 +31,7 @@ import {OnFocusDirective} from './directive/focus-class.directive';
 import {OrderService} from './service/order.service';
 import {PaginationService} from './service/pagination.service';
 import {RangePipe} from './pipe/range.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,8 +64,11 @@ import {RangePipe} from './pipe/range.pipe';
     NoLoggedGuard,
     CartService,
     OrderService,
-    PaginationService
+    PaginationService,
+      ItemService,
+      CategoryService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

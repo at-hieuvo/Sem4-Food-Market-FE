@@ -36,14 +36,48 @@
     </section>
     <section id="idTab2" class="tab-pane page-product-box">
 
-      <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid"
-           data-href="https://developers.facebook.com/docs/plugins" data-width="100%"
-           data-numposts="5" fb-xfbml-state="rendered"><span style="height: 18711px;"><iframe
-        id="f1fa5edd9a0d038" name="f4d5e084aa65dc" scrolling="no" title="Facebook Social Plugin"
-        class="fb_ltr"
-        src="https://www.facebook.com/plugins/comments.php?api_key=483479355145437&amp;channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df123b7ecee73a88%26domain%3Dleo-food.bizwebvietnam.net%26origin%3Dhttps%253A%252F%252Fleo-food.bizwebvietnam.net%252Ff179ccff3135c8%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.5&amp;width=100%25"
-        style="border: none; overflow: hidden; height: 18711px; width: 100%;"></iframe></span>
-      </div>
+
+      <!--&lt;!&ndash;FACEBOOK SDK&ndash;&gt;-->
+      <!--<script>-->
+          <!--window.fbAsyncInit = function() {-->
+              <!--FB.init({-->
+                  <!--appId      : '<YOUR API KEY>',-->
+                  <!--xfbml      : true,-->
+                  <!--version    : 'v2.4'-->
+              <!--});-->
+          <!--};-->
+
+          <!--(function(d, s, id){-->
+              <!--var js, fjs = d.getElementsByTagName(s)[0];-->
+              <!--if (d.getElementById(id)) {return;}-->
+              <!--js = d.createElement(s); js.id = id;-->
+              <!--js.src = "//connect.facebook.net/<lan_LAN>/sdk.js";-->
+              <!--fjs.parentNode.insertBefore(js, fjs);-->
+          <!--}(document, 'script', 'facebook-jssdk'));-->
+
+          <!--var appDirectives = angular.module('appDirectives');-->
+
+          <!--appDirectives.directive('facebookComments', ['$location', function ($location) {-->
+              <!--return {-->
+                  <!--restrict: 'E',-->
+                  <!--templateUrl: 'scripts/directives/facebookComments.html,-->
+                  <!--scope:{},-->
+                  <!--link: function(scope, el, attr){-->
+                      <!--scope.curPath = $location.absUrl();-->
+                  <!--}-->
+              <!--};-->
+          <!--}]);-->
+      <!--</script>-->
+      <!--<div class="fb-comments" dyn-fb-comment-box data-numposts="5" data-colorscheme="light" data-width="100%"></div>-->
+      <!--END FACEBOOK-->
+      <!--<div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid"-->
+           <!--data-href="https://developers.facebook.com/docs/plugins" data-width="100%"-->
+           <!--data-numposts="5" fb-xfbml-state="rendered"><span style="height: 18711px;"><iframe-->
+        <!--id="f1fa5edd9a0d038" name="f4d5e084aa65dc" scrolling="no" title="Facebook Social Plugin"-->
+        <!--class="fb_ltr"-->
+        <!--src="https://www.facebook.com/plugins/comments.php?api_key=483479355145437&amp;channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df123b7ecee73a88%26domain%3Dleo-food.bizwebvietnam.net%26origin%3Dhttps%253A%252F%252Fleo-food.bizwebvietnam.net%252Ff179ccff3135c8%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v2.5&amp;width=100%25"-->
+        <!--style="border: none; overflow: hidden; height: 18711px; width: 100%;"></iframe></span>-->
+      <!--</div>-->
 
     </section>
   </div>

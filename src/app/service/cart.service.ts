@@ -29,11 +29,10 @@ export class CartService implements OnDestroy {
     if (existItem === undefined) {
       let cartItem;
       cartItem = Object.assign({}, product);
-      cartItem.quantityCart = 1;
+      cartItem.quantity = 1;
       console.log(cartItem);
       this.carts.push(cartItem);
     }
-    swal('Thông báo', 'Bạn đã thêm sản phẩm ' + product.name + ' vào giỏ hàng', 'success');
     this.saveCartToLocalStorage();
   }
   saveCartToLocalStorage() {
@@ -43,7 +42,8 @@ export class CartService implements OnDestroy {
     let total: number;
     total = 0;
     this.carts.forEach(function (item) {
-      total += (item.price * item.quantityCart);
+
+      total += (item.price * item.quantity);
     });
     return total;
   }

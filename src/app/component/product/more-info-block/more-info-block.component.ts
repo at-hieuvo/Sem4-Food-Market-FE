@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./more-info-block.component.css']
 })
 export class MoreInfoBlockComponent implements OnInit {
+    ngOnInit(): void {
+    }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+    constructor() {
+    }
 
 }
