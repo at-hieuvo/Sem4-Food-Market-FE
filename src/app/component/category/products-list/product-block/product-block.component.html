@@ -1,4 +1,4 @@
-<div [ngClass]="{'clear_left': (index % 4 == 0)}" class="product_block col-md-3 col-xs-6 col-sp-12">
+<div [ngClass]="{'clear_left': (index % size == 0)}" class="product_block {{class}}">
       <div class="item-variant clearfix product-block">
         <div class="product-meta">
           <h3 class="name">
@@ -9,17 +9,18 @@
           <div class="review clearfix">
             <span class="shopify-product-reviews-badge" data-id="995766"></span>
           </div>
-          <div class="content_price">
-						<span class="price product-price sale-price">
-							<span>{{ product.price.toLocaleString('vi') }}₫</span>
-						</span>
-
-
+          <div class="content_price" *ngIf="product.promotions.length != 0">
+                          <span class="price product-price sale-price">
+                           <span>{{(product.price *(1 - product.promotions[0].percent/100)).toLocaleString('vi')}} ₫</span>
+                         </span>
             <span class="old-price product-price">
-								<span>90.000₫</span>
-							</span>
-
-
+                          <span>{{product.price.toLocaleString('vi')}} ₫</span>
+                        </span>
+          </div>
+          <div class="content_price" *ngIf="product.promotions.length == 0">
+                          <span class="price product-price sale-price">
+                           <span>{{product.price.toLocaleString('vi')}} ₫</span>
+                         </span>
           </div>
           <div class="clearfix"></div>
           <div class="product-desc"> Nhà hàng X-Jo là một trong những nhà hàng ẩm thực nổi
