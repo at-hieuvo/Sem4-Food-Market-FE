@@ -11,7 +11,7 @@
               <!-- srat one product item -->
               <div class="owl-item active first" style="width: 195px;" *ngFor="let item of itemsBest ">
                 <div class="item">
-                  <div class="product_block  ">
+                  <div class="product_block">
                     <div class="item-variant clearfix product-block">
                       <div class="product-meta">
                         <h3 class="name">
@@ -41,7 +41,7 @@
                           </span>
                         </a>
                       </div>
-                      <span class="product-label sale-box">
+                      <span *ngIf="item.promotions.length != 0" class="product-label sale-box">
                         <span class="label-sale">Sale</span>
                       </span>
                       <div class="right">
