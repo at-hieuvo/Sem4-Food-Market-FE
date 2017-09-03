@@ -7,7 +7,6 @@ import { HomeComponent } from './component/home/home.component';
 import {NotFoundComponent} from './component/template/not-found/not-found.component';
 import {LoginComponent} from './component/login/login.component';
 import {AccountComponent} from './component/account/account.component';
-import {SupplierGuard} from './security/supplier.guard';
 import {ActivateGuard} from './security/activate.guard';
 import {NoLoggedGuard} from './security/no-logged.guard';
 import {PaymentComponent} from './component/payment/payment.component';

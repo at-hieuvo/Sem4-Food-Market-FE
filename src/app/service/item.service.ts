@@ -12,11 +12,11 @@ export class ItemService {
   }
 
   getItemPromotion() {
-    return this.http.get(this.url + 'getItemPromotion?quantity=6').map(res => res.json());
+    return this.http.get(this.url + 'getItemPromotion?quantity=5').map(res => res.json());
   }
 
   getItemNew() {
-    return this.http.get(this.url + 'getItemNew?quantity=7').map(res => res.json());
+    return this.http.get(this.url + 'getItemNew?quantity=9').map(res => res.json());
   }
 
     getItemBest() {

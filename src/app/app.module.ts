@@ -64,7 +64,9 @@ import {RangePipe} from './pipe/range.pipe';
     NoLoggedGuard,
     CartService,
     OrderService,
-    PaginationService
+    PaginationService,
+      ItemService,
+      CategoryService
   ],
   bootstrap: [AppComponent]
 })
