@@ -11,7 +11,7 @@
       </div>
       <div class="content_price">
 						<span class="price product-price sale-price">
-							<span>83.000₫</span>
+							<span>{{ product.price.toLocaleString('vi') }}₫</span>
 						</span>
 
 
@@ -32,11 +32,12 @@
            href="/detail/1"
            title="Pizza hải sản">
           <img class="replace-2x img-responsive"
-               src="./assets/images/upload/mon1.jpg"
-               alt="Pizza hải sản">
+               src="./assets/images/upload/{{product.avatar}}"
+               onerror="this.src='./assets/images/upload/noimage.gif'">
           <span class="product-additional" data-idproduct="995766">
-	            <img class="replace-2x img-responsive" alt="Pizza hải sản"
-                   src="./assets/images/mon1.jpg">
+	            <img class="replace-2x img-responsive"
+                   src="./assets/images/upload/{{product.avatar}}"
+                   onerror="this.src='./assets/images/upload/noimage.gif'">
 	</span>
         </a>
       </div>
