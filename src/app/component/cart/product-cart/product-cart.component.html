@@ -4,8 +4,10 @@
     <div class="cpro_item_inner">
       <a href="/collections/all/products/sinh-to-hoa-qua?variantid=2246368"
          class="cart__image">
-        <img width="75" height="75" alt="Sinh tố hoa quả"
-             src="{{ product.avatar }}">
+        <img width="75" height="75" alt=""
+             alt="{{ product.name }}"
+             src="./assets/images/upload{{ product.avatar }}"
+             onerror="this.src='./assets/images/upload/noimage.gif'">
       </a>
     </div>
   </div>
@@ -20,7 +22,8 @@
   <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
     <div class="cpro_item_inner">
       <span class="visible-xs">Giá: </span>
-      <span class="price product-price">{{ product.price }}₫</span>
+      <span *ngIf="product.promotions.length != 0" class="price product-price">{{ (product.price * (1 - product.promotions[0].percent/100)).toLocaleString('vi') }}₫</span>
+      <span *ngIf="product.promotions.length == 0" class="price product-price">{{ (product.price).toLocaleString('vi') }}₫</span>
     </div>
   </div>
   <div class="cpro_item text-center col-xs-12 col-sm-2 col-md-2">
@@ -33,7 +36,8 @@
   <div class="cpro_item col-xs-12 col-sm-2 col-md-2">
     <div class="cpro_item_inner">
       <span class="visible-xs">Tổng: </span>
-      <span class="price product-price">{{ product.price * product.quantityCart }} ₫</span>
+      <span *ngIf="product.promotions.length == 0" class="price product-price">{{(product.price * product.quantityCart).toLocaleString('vi') }} ₫</span>
+      <span *ngIf="product.promotions.length != 0" class="price product-price">{{ (product.price *(1 - product.promotions[0].percent/100) * product.quantityCart).toLocaleString('vi') }} ₫</span>
     </div>
   </div>
   <div class="cpro_item col-xs-12 col-sm-1 col-md-1">

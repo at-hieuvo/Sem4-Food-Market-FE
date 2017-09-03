@@ -16,7 +16,7 @@
         width: 68%
     }
     #apsubcategoriestab_block .category_item .category_productlist .product-block .image {
-        margin-right: 10px
+        /*margin-right: 10px*/
     }
 }
 @media (min-width: 992px) {

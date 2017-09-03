@@ -11,7 +11,7 @@
               <!-- srat one product item -->
               <div class="owl-item active first" style="width: 195px;" *ngFor="let item of itemsBest ">
                 <div class="item">
-                  <div class="product_block  ">
+                  <div class="product_block">
                     <div class="item-variant clearfix product-block">
                       <div class="product-meta">
                         <h3 class="name">
@@ -20,16 +20,19 @@
                         <div class="review clearfix">
                           <span class="shopify-product-reviews-badge" data-id="995767"></span>
                         </div>
-                        <div class="content_price">
+                        <div class="content_price" *ngIf="item.promotions.length != 0">
                           <span class="price product-price sale-price">
-                           <span>{{item.price.toLocaleString('vi')}} ₫</span>
+                           <span>{{(item.price *(1 - item.promotions[0].percent/100)).toLocaleString('vi')}} ₫</span>
                          </span>
                          <span class="old-price product-price">
                           <span>{{item.price.toLocaleString('vi')}} ₫</span>
                         </span>
                       </div>
-                      <div class="clearfix"></div>
-                      <div class="product-desc"> Nhà hàng X-Jo là một trong những nhà hàng ẩm thực nổi tiếng trên khu vực Phố Cổ chuyên về ẩm thực của Singapore như các món về gà...</div>
+                        <div class="content_price" *ngIf="item.promotions.length == 0">
+                          <span class="price product-price sale-price">
+                           <span>{{item.price.toLocaleString('vi')}} ₫</span>
+                         </span>
+                        </div>
                     </div>
                     <div class="product-image-container image">
                       <div class="layout-img">
@@ -41,7 +44,7 @@
                           </span>
                         </a>
                       </div>
-                      <span class="product-label sale-box">
+                      <span *ngIf="item.promotions.length != 0" class="product-label sale-box">
                         <span class="label-sale">Sale</span>
                       </span>
                       <div class="right">

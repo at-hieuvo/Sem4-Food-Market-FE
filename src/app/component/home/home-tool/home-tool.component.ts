@@ -8,12 +8,12 @@ import { ItemService } from '../../../service/item.service';
 })
 export class HomeMaterialComponent implements OnInit {
 
-  itemsMaterial: any;
+  itemsTool: any;
   constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.itemService.getItemTool().subscribe((data: any) => {
-      this.itemsMaterial = data;
+      this.itemsTool = data;
     });
   }
 

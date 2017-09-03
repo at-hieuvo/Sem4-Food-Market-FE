@@ -15,7 +15,6 @@ export class HomeCategoryComponent implements OnInit {
   ngOnInit() {
     this.categorySevice.getListCategory().subscribe((data: any) => {
       this.categories = data;
-      console.log(this.categories);
     });
   }
 

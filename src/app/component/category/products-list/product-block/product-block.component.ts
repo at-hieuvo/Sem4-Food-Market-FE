@@ -10,6 +10,8 @@ import {ShareService} from '../../../../service/share.service';
 export class ProductBlockComponent implements OnInit {
   @Input() product: any;
   @Input() index: any;
+  @Input() size: any;
+  @Input() class: any;
   constructor(private service: ShareService) { }
   ngOnInit() {
     // console.log(this.product);
