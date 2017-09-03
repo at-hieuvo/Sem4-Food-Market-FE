@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-category-header',
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category-header.component.css']
 })
 export class CategoryHeaderComponent implements OnInit {
-
-  constructor() { }
-
+  title: Title;
+  constructor(private titleService: Title) {
+    this.title = titleService;
+  }
+  header: string;
   ngOnInit() {
   }
 

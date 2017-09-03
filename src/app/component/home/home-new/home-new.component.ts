@@ -9,12 +9,12 @@ import { ItemService } from '../../../service/item.service';
 export class HomeRiceorderComponent implements OnInit {
 
   itemsNew: any;
-  constructor(private itemService:ItemService) { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
     this.itemService.getItemNew().subscribe((data: any) => {
       this.itemsNew = data;
-    })
+    });
   }
 
 }

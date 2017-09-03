@@ -3714,7 +3714,12 @@ ol {
     padding-top: 20px;
 }
 .product-name {
-    text-align: right
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 .product-name a {
     float: left;

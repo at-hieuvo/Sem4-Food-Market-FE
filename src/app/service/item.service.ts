@@ -8,7 +8,7 @@ export class ItemService {
   constructor(private http: Http) {}
 
   getItemTool() {
-    return this.http.get(this.url + 'getItemTool?quantity=6').map(res => res.json());
+    return this.http.get(this.url + 'getItemTool?quantity=9').map(res => res.json());
   }
 
   getItemPromotion() {
