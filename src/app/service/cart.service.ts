@@ -33,7 +33,7 @@ export class CartService implements OnDestroy {
       // console.log(cartItem);
       this.carts.push(cartItem);
     }
-    console.log(this.carts);
+    swal('Thông báo', 'Đã thêm ' + product.name + ' vào giỏ hàng!', 'success');
     this.saveCartToLocalStorage();
   }
   saveCartToLocalStorage() {

@@ -5,6 +5,7 @@ import {Http} from '@angular/http';
 import {ActivatedRoute, Route, Router} from '@angular/router';
 import {ProductsListComponent} from './products-list/products-list.component';
 import {environment} from '../../../environments/environment';
+import {CategoryHeaderComponent} from './category-header/category-header.component';
 
 @Component({
   selector: 'app-category',
@@ -15,6 +16,7 @@ import {environment} from '../../../environments/environment';
 export class CategoryComponent implements OnInit, OnDestroy {
   @Output() viewQuick: string ;
   @ViewChild(ProductsListComponent) productListComponent: ProductsListComponent;
+  @ViewChild(CategoryHeaderComponent) cateHeader: CategoryHeaderComponent;
   page: number;
   id: number;
   private sub: any;
@@ -22,7 +24,8 @@ export class CategoryComponent implements OnInit, OnDestroy {
   constructor(private paginationService: PaginationService,
               private http: Http,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private categoryService: CategoryService) {
     this.viewQuick = 'none';
     this.id = 0;
     this.page = 0;
@@ -37,6 +40,9 @@ export class CategoryComponent implements OnInit, OnDestroy {
       }
       this.sub2 = this.route.params.subscribe(params2 => {
         this.id = +params2['id'];
+        if (!this.id) {
+          this.id = 0;
+        }
         this.getList(this.id, this.page);
       });
     });

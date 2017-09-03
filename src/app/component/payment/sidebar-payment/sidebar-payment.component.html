@@ -16,7 +16,7 @@
               <td>
                 <div class="product-thumbnail">
                   <div class="product-thumbnail__wrapper">
-                    <img src="{{ product.avatar }}"
+                    <img src="./assets/images/upload{{ product.avatar }}"
                          alt="Cơm gà" class="product-thumbnail__image">
 
                   </div>
@@ -28,8 +28,11 @@
                     {{ product.name }}
                 </span>
               </td>
-              <td class="product-price text-right">
-                {{ product.price * product.quantityCart }} ₫
+              <td  *ngIf="product.promotions.length != 0" class="product-price text-right">
+                {{ (product.price * (1 - product.promotions[0].percent/100)).toLocaleString('vi') }} ₫
+              </td>
+              <td  *ngIf="product.promotions.length == 0" class="product-price text-right">
+                {{ (product.price * product.quantityCart).toLocaleString('vi') }} ₫
               </td>
             </tr>
             </tbody>
@@ -91,7 +94,7 @@
     </div>
     <div class="form-group clearfix hidden-sm hidden-xs">
       <div class="field__input-btn-wrapper mt10">
-        <a class="previous-link" href="/cart">
+        <a class="previous-link" [routerLink]="['/cart']">
           <i class="fa fa-angle-left fa-lg" aria-hidden="true"></i>
           <span>Quay về giỏ hàng</span>
         </a>

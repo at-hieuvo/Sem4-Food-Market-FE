@@ -13,8 +13,17 @@ import {PaymentComponent} from './component/payment/payment.component';
 const appRoutes: Routes = [
 
   { path: 'category', children: [
-    {path: '', component: CategoryComponent },
-    {path: ':id', component: CategoryComponent }]
+    { path: '', component: CategoryComponent, data: {
+        breadcrumb: 'Tất cả sản phẩm'
+      }
+    },
+    { path: ':id', component: CategoryComponent, data: {
+        breadcrumb: 'Danh mục sản phẩm'
+      }
+    }],
+    data: {
+      breadcrumb: 'Danh mục'
+    }
   },
   { path: 'login',
     component: LoginComponent,
@@ -29,12 +38,15 @@ const appRoutes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
-    data: { title: 'Cart List'},
+    data: { title: 'Giỏ hàng',
+      breadcrumb: 'Giỏ hàng'},
   },
   {
     path: 'checkout',
     component: PaymentComponent,
-    data: { title: 'Cart List'},
+    data: { title: 'Thanh toán',
+      breadcrumb: 'Thanh toán'
+    }
   },
   {
     path: 'account',
@@ -46,7 +58,7 @@ const appRoutes: Routes = [
     redirectTo: '/',
     pathMatch: 'full'
   },
-  {path: 'home', component: HomeComponent },
+  {path: 'home', component: HomeComponent, data: {} },
   { path: '**', component: NotFoundComponent }
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

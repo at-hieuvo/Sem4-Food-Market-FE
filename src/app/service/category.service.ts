@@ -5,9 +5,6 @@ import {environment} from '../../environments/environment';
 
 @Injectable()
 export class CategoryService {
-  cart: Array<any> = [];
-  item: any = null;
-  items: Array<any> = [];
   constructor(private http: Http) {
   }
   getListCategory() {
