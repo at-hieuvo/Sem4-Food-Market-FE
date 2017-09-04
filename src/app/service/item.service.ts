@@ -34,4 +34,8 @@ export class ItemService {
     getImageOfItem(id: number) {
         return this.http.get('http://localhost:8080/images/item/' + id).map(res => res.json());
     }
+
+    getCateByItem(id: number) {
+      return this.http.get(this.url + 'getCategory/' + id).map(res => res.json());
+    }
 }
