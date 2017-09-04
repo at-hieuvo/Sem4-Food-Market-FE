@@ -10,8 +10,10 @@ export class CategoryService {
   getListCategory() {
     return this.http.get(environment.hostname + '/category/level/1').map(res => res.json());
   }
-  getDetail(index: number) {
-    return this.http.get('assets/data.json')
-      .map(article => article.json().articles.find(trai => trai.id === index));
+  getListSubCategory(id: number) {
+    return this.http.get(environment.hostname + '/category/parents/' + id).map(res => res.json());
+  }
+  getDetail(id: number) {
+    return this.http.get(environment.hostname + '/category/' + id).map(res => res.json());
   }
 }
