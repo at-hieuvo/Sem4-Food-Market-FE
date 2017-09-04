@@ -1,15 +1,12 @@
-<div class="primary_block">
-
+<div class="primary_block" *ngIf="item !== null" >
     <div class="row">
         <div class="product-left-column col-xs-12 col-sm-12 col-md-5">
             <div id="image-block" class="image clearfix">
-
-                <span id="view_full_size">
-                    <img id="proimage" class="img-responsive" itemprop="image"
-                         src="{{images_item[0].image}}"
-                         alt="Sinh tố hoa quả">
+                <a id="view_full_size">
+                    <img class="img-responsive" src="./assets/images/upload/{{item.avatar}}"
+                         alt="Sinh tố hoa quả"/>
                     <span class="span_link no-print status-enable"></span>
-                </span>
+                </a>
             </div>
             <div id="views_block" class="clearfix ">
                 <div id="thumbs_list" class="no-owl">
@@ -25,7 +22,7 @@
                                            title="Sinh tố hoa quả">
                                             <img class="img-responsive img-fix" id="thumb_1"
                                                  src="{{image.image}}"
-                                                 alt="" itemprop="image">
+                                                 alt="">
                                         </a>
                                     </li>
                                 </div>
@@ -71,16 +68,10 @@
                 <link itemprop="availability" href="http://schema.org/InStock">
 
                 <form action="/cart/add" method="post" enctype="multipart/form-data" id="add-to-cart-form">
-
-
                     <div class="product_price_content">
-
-
-
             <span id="ProductPrice" class="price on-sale" itemprop="price">
                    {{item.price}}₫
             </span>
-
                         <span class="old-price">
                     <span class="product-price-old">{{item.price}}₫</span>
                 </span>
@@ -89,7 +80,7 @@
 
 
                     <div class="quantity_wanted_p clearfix">
-                        <label for="qty" class="quantity-selector">Số lượng</label>
+                        <label for="quantity" class="quantity-selector">Số lượng</label>
                         <div class="pull-left">
                             <div class="custom pull-left">
                                 <input type="number" id="Quantity" name="quantity" value="1" min="1"
@@ -97,14 +88,9 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div class="border-box clear-fix">
-
-
                         <button class="btn btn-outline btn-cart ajax_addtocart" title="Thêm vào giỏ hàng">
                             <span><i class="icon-basket"></i> Thêm vào giỏ hàng</span></button>
-
 
                     </div>
                 </form>
@@ -132,8 +118,8 @@
 
 
                     <li>
-                        <a class="btn social-sharing btn-facebook" href="javascript:void(0);"
-                           data-type="facebook">
+                        <a class="btn social-sharing btn-facebook"
+                           data-type="facebook" (click)="share()" >
                             <i class="fa fa-facebook"></i> Facebook
                         </a>
                     </li>
@@ -148,6 +134,7 @@
 
 
                 </ul>
+                <fb-like href="https://github.com/zyra/ngx-facebook"></fb-like>
             </div>
             <div style="display:none" id="content-share">
                 <div class="share-desc">' + sharedesc + '</div>

@@ -18,7 +18,7 @@ export class ProductListRelatedComponent implements OnInit {
             this.id = +params['id'];
             this.itemService.getCateByItem(this.id).subscribe((data: any) => {
                 this.itemService.getItemRelated(data[0].id).subscribe((items: any) => {
-                    this.itemsRelated = items.splice(4);
+                    this.itemsRelated = items.content;
                 });
             });
         });
