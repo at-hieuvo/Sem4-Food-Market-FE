@@ -51,6 +51,7 @@ import {RangePipe} from './pipe/range.pipe';
   ],
   imports: [
    routing,
+    FacebookModule.forRoot(),
     BrowserModule,
     HttpModule,
     FormsModule,
