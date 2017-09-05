@@ -7,6 +7,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import {TokenService} from './service/token.service';
+import {BreadcrumbsComponent} from './component/template/breadcrumbs/breadcrumbs.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import {TokenService} from './service/token.service';
 })
 export class AppComponent implements OnInit {
   @ViewChild(HeaderComponent) header: HeaderComponent;
+  @ViewChild(BreadcrumbsComponent) breadcrumbComponent: BreadcrumbsComponent;
   title = 'app';
   constructor(private router: Router,
               private titleService: Title,
@@ -33,9 +35,11 @@ export class AppComponent implements OnInit {
       this.header.login(data);
     });
     this.serviceShare.cart.subscribe(data => {
-      console.log(data);
       this.header.addCart(data);
     });
+    this.serviceShare.breadCrumb.subscribe(data => {
+      this.breadcrumbComponent.breadcrumbs[1].label = data;
+    })
     this.router.events
         .filter((event) => event instanceof NavigationEnd)
         .map(() => this.activatedRoute)

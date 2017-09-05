@@ -94,6 +94,4 @@ export class BreadcrumbsComponent implements OnInit {
       return this.getBreadcrumbs(child, url, breadcrumbs);
     }
   }
-
-
 }

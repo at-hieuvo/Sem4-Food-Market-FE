@@ -6,6 +6,7 @@ import {Http} from '@angular/http';
 export class ShareService {
   public login = new Subject<any>();
   public cart = new Subject<any>();
+  public breadCrumb = new Subject<any>();
   constructor(private http: Http) {
   }
   loginToken(data) {
@@ -15,5 +16,8 @@ export class ShareService {
     let data;
     data = item;
     this.cart.next(data);
+  }
+  updateBreadCrum(data) {
+    this.breadCrumb.next(data);
   }
 }
