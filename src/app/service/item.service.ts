@@ -1,6 +1,7 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/Rx';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class ItemService {
@@ -28,10 +29,14 @@ export class ItemService {
     }
 
     getItemRelated(id: number) {
-        return this.http.get('http://localhost:8080/category/items/' + id).map(res => res.json());
+        return this.http.get(environment.hostname + '/category/items/' + id + '?page=0&size=4').map(res => res.json());
     }
 
     getImageOfItem(id: number) {
         return this.http.get('http://localhost:8080/images/item/' + id).map(res => res.json());
+    }
+
+    getCateByItem(id: number) {
+      return this.http.get(this.url + 'getCategory/' + id).map(res => res.json());
     }
 }

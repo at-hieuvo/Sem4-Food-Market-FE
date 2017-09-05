@@ -1,8 +1,4 @@
-<div class="product_list_owl">
-  <div class="owl-carousel slide owl-theme" style="display: block; opacity: 1;">
-    <div class="owl-wrapper-outer">
-      <div class="owl-wrapper" style="width: 100%; left: 0px; display: block;">
-      </div>
-    </div>
-  </div>
-</div>
+<app-product-block [index]="i" size="4" [class]="'col-md-3 col-sm-3 col-xs-6 col-sp-12'"
+                   *ngFor="let item of itemsRelated; let i = index"
+                   [product]="item">
+</app-product-block>
